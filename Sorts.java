@@ -1,3 +1,5 @@
+//import java.util.Arrays;
+
 public class Sorts {
     /**Bubble sort of an int array. 
      *@postcondition The array will be modified such that the elements will be in increasing order.
@@ -5,6 +7,8 @@ public class Sorts {
     */
     public static void bubbleSort(int[] data) {
         for (int passes = data.length - 1; passes > 0; passes--) { // Check all values, then one less value, then one less
+            //System.out.println(Arrays.toString(data)); // testing
+            
             boolean swapped = false;
             for (int i = 0; i < passes; i++) {
                 if (data[i] > data[i + 1]) {
