@@ -59,7 +59,8 @@ public class Tester {
     }
 
     public static void compareSorts(int[] unsorted, char section) {
-        int[] bubble = filledArray(unsorted); // in case we need to test other sorting algorithms
+        int[] bubble = Arrays.copyOf(unsorted, unsorted.length);
+        int[] selection = Arrays.copyOf(unsorted, unsorted.length);
 
         Arrays.sort(unsorted); // variable name no longer makes sense, but whatevs, no one's looking
 
@@ -67,11 +68,20 @@ public class Tester {
         System.out.println("Bubble Sort:");
         Sorts.bubbleSort(bubble);
         System.out.println("---");
+        System.out.println("Selection Sort:");
+        Sorts.selectionSort(selection);
+        System.out.println("---");
     
         System.out.println("  " + Arrays.toString(unsorted) + " - Arrays.sort()");
         System.out.println("  " + Arrays.toString(bubble) + " - bubble sort");
+        System.out.println("  " + Arrays.toString(selection) + " - selection sort");
         if (Arrays.equals(bubble, unsorted)) {
-            printGood("Arrays are equal");
+            printGood("Bubble is correct");
+        } else {
+            printBad(section);
+        }
+        if (Arrays.equals(selection, unsorted)) {
+            printGood("Selection is correct");
         } else {
             printBad(section);
         }
@@ -84,14 +94,6 @@ public class Tester {
             out[i] = rand.nextInt(bound);
         }
         return out;
-    }
-
-    public static int[] filledArray(int[] contents) {
-        int[] bag = new int[contents.length];
-        for (int i = 0; i < contents.length; i++) {
-            bag[i] = contents[i];
-        }
-        return bag;
     }
 
     public static void printGood(String comment) {
