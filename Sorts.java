@@ -26,6 +26,16 @@ public class Sorts {
     }
 
     public static void selectionSort(int[] data) {
-        
+        for (int sortedCount = 0; sortedCount < data.length - 1; sortedCount++) {
+            int smol = sortedCount; // Stores the index of smallest element in current pass
+            for (int i = sortedCount + 1; i < data.length; i++) {
+                if (data[smol] > data[i]) {
+                    smol = i;
+                }
+            }
+            int temp = data[smol];
+            data[smol] = data[sortedCount];
+            data[sortedCount] = temp;
+        }
     }
 }
