@@ -61,6 +61,7 @@ public class Tester {
     public static void compareSorts(int[] unsorted, char section) {
         int[] bubble = Arrays.copyOf(unsorted, unsorted.length);
         int[] selection = Arrays.copyOf(unsorted, unsorted.length);
+        int[] insertion = Arrays.copyOf(unsorted, unsorted.length);
 
         Arrays.sort(unsorted); // variable name no longer makes sense, but whatevs, no one's looking
 
@@ -71,10 +72,14 @@ public class Tester {
         System.out.println("Selection Sort:");
         Sorts.selectionSort(selection);
         System.out.println("---");
+        System.out.println("Insertion Sort:");
+        Sorts.insertionSort(insertion);
+        System.out.println("---");
     
         System.out.println("  " + Arrays.toString(unsorted) + " - Arrays.sort()");
         System.out.println("  " + Arrays.toString(bubble) + " - bubble sort");
         System.out.println("  " + Arrays.toString(selection) + " - selection sort");
+        System.out.println("  " + Arrays.toString(insertion) + " - insertion sort");
         if (Arrays.equals(bubble, unsorted)) {
             printGood("Bubble is correct");
         } else {
@@ -82,6 +87,11 @@ public class Tester {
         }
         if (Arrays.equals(selection, unsorted)) {
             printGood("Selection is correct");
+        } else {
+            printBad(section);
+        }
+        if (Arrays.equals(insertion, unsorted)) {
+            printGood("Insertion is correct");
         } else {
             printBad(section);
         }
