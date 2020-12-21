@@ -48,6 +48,18 @@ public class Sorts {
     *@postcondition The array will be modified such that the elements will be in increasing order.
     *@param data - the elements to be sorted.
     */
-    public static void insertionSort(int[] data){
+    public static void insertionSort(int[] data) {
+        for (int sortedCount = 1; sortedCount < data.length; sortedCount++) {
+            //System.out.println(Arrays.toString(data)); // testing
+            int currentValue = data[sortedCount];
+            for (int i = sortedCount; i >= 0; i--) {
+                if (i == 0 || currentValue >= data[i - 1]) {
+                    data[i] = currentValue;
+                    i = 0;
+                } else {
+                    data[i] = data[i - 1]; // copy the left element to the current index 
+                }
+            }
+        }
     }
 }
