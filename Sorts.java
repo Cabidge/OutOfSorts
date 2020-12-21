@@ -1,4 +1,4 @@
-//import java.util.Arrays;
+import java.util.Arrays;
 
 public class Sorts {
     /**Bubble sort of an int array. 
@@ -25,8 +25,13 @@ public class Sorts {
         }
     }
 
+    /**selection sort of an int array. 
+     *@postcondition The array will be modified such that the elements will be in increasing order.
+    *@param data - the elements to be sorted.
+    */
     public static void selectionSort(int[] data) {
         for (int sortedCount = 0; sortedCount < data.length - 1; sortedCount++) {
+            //System.out.println(Arrays.toString(data)); // testing
             int smol = sortedCount; // Stores the index of smallest element in current pass
             for (int i = sortedCount + 1; i < data.length; i++) {
                 if (data[smol] > data[i]) {
@@ -37,5 +42,12 @@ public class Sorts {
             data[smol] = data[sortedCount];
             data[sortedCount] = temp;
         }
+    }
+    
+    /**insertion sort of an int array. 
+    *@postcondition The array will be modified such that the elements will be in increasing order.
+    *@param data - the elements to be sorted.
+    */
+    public static void insertionSort(int[] data){
     }
 }
